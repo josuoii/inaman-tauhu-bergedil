@@ -12,6 +12,8 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased bg-brand-cream text-brand-brown">
+        <x-preloader />
+
         @php
             $whatsapp = \App\Models\SiteSetting::get('whatsapp', '601131441795');
         @endphp

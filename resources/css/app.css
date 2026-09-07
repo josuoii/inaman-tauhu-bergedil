@@ -47,6 +47,70 @@
     }
 }
 
+.il-preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: grid;
+    place-items: center;
+    background:
+        radial-gradient(rgba(179, 137, 47, 0.1) 1px, transparent 1.3px),
+        linear-gradient(160deg, #fff8e7 0%, #f3e8cf 100%);
+    background-size: 22px 22px, 100% 100%;
+    transition: opacity 0.55s ease, visibility 0.55s ease;
+}
+
+.il-preloader.il-done {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.il-letter {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: il-draw 0.45s cubic-bezier(0.5, 0, 0.3, 1) forwards;
+    animation-delay: var(--ld);
+}
+
+.il-tagline {
+    opacity: 0;
+    animation: il-fade 0.6s ease-out forwards;
+    animation-delay: 0.95s;
+}
+
+.il-bar {
+    transform: scaleX(0);
+    animation: il-bar 1.5s ease-out forwards;
+    animation-delay: 0.85s;
+}
+
+@keyframes il-draw {
+    from { stroke-dashoffset: 1; }
+    to { stroke-dashoffset: 0; }
+}
+
+@keyframes il-fade {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes il-bar {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .il-letter,
+    .il-tagline,
+    .il-bar {
+        animation: none;
+    }
+    .il-letter { stroke-dashoffset: 0; }
+    .il-tagline,
+    .il-bar { opacity: 1; transform: none; }
+}
+
 @layer utilities {
     .text-balance {
         text-wrap: balance;
