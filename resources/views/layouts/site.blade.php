@@ -9,6 +9,8 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=plus+jakarta+sans:400,500,600,700,800&display=swap" rel="stylesheet" />
 
+        <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
+
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased bg-brand-cream text-brand-brown">
@@ -49,7 +51,7 @@
         <footer class="mt-20 bg-brand-brown text-brand-cream/80">
             <div class="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-3">
                 <div>
-                    <x-brand-mark />
+                    <x-brand-mark on-dark />
                     <p class="mt-4 max-w-xs text-sm leading-relaxed">
                         {{ \App\Models\SiteSetting::get('about_text', 'Tauhu bergedil buatan tangan, rangup & padat isi. Buatan sendiri dengan kasih sayang di Sungai Buloh.') }}
                     </p>
