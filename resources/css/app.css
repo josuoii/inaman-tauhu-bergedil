@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .btn {
+        @apply inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-60 disabled:cursor-not-allowed;
+    }
+    .btn-primary {
+        @apply btn bg-brand-gold text-brand-brown-dark hover:bg-brand-gold-dark hover:text-white focus:ring-brand-gold px-6 py-3;
+    }
+    .btn-green {
+        @apply btn bg-brand-green text-white hover:bg-brand-green-dark focus:ring-brand-green px-6 py-3;
+    }
+    .btn-outline {
+        @apply btn border-2 border-brand-brown/15 bg-white/70 text-brand-brown hover:border-brand-gold hover:bg-brand-gold/10 focus:ring-brand-gold px-6 py-3;
+    }
+    .card {
+        @apply rounded-2xl bg-white shadow-soft ring-1 ring-brand-brown/5;
+    }
+    .chip {
+        @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-bold;
+    }
+    .section-title {
+        @apply text-3xl font-extrabold tracking-tight text-brand-brown sm:text-4xl;
+    }
+    .article-content {
+        @apply text-base leading-relaxed text-brand-brown/80;
+    }
+    .article-content h3 {
+        @apply mt-6 mb-3 text-xl font-extrabold text-brand-brown;
+    }
+    .article-content p {
+        @apply mb-4;
+    }
+    .article-content ul {
+        @apply mb-4 list-disc space-y-1 pl-5;
+    }
+    .article-content ol {
+        @apply mb-4 list-decimal space-y-2 pl-5;
+    }
+    .article-content li strong {
+        @apply text-brand-brown;
+    }
+    .article-content strong {
+        @apply text-brand-brown;
+    }
+}
+
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+    .animate-delay-1 {
+        animation-delay: 0.1s;
+    }
+    .animate-delay-2 {
+        animation-delay: 0.2s;
+    }
+    .animate-delay-3 {
+        animation-delay: 0.3s;
+    }
+}
