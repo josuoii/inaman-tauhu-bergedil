@@ -125,3 +125,15 @@
         animation-delay: 0.3s;
     }
 }
+
+/* Hero 3D canvas */
+#hero-3d canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+#hero-3d {
+    pointer-events: none;
+    touch-action: pan-y;
+}

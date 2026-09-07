@@ -47,7 +47,12 @@
 
             <div class="relative animate-fade-up animate-delay-2">
                 <div class="absolute -inset-3 rounded-[2rem] border-2 border-dashed border-brand-gold/50"></div>
-                <img src="{{ asset('images/hero.jpg') }}" alt="Tauhu bergedil INAMAN" class="relative aspect-[4/3] w-full rounded-[1.75rem] object-cover shadow-lift">
+
+                <div id="hero-3d" class="relative aspect-[4/3] w-full rounded-[1.75rem] overflow-hidden">
+                    {{-- Fallback: hero.jpg kekal di belakang; kanvas 3D akan menimpa bila WebGL berjaya --}}
+                    <img src="{{ asset('images/hero.jpg') }}" alt="Tauhu bergedil INAMAN" class="absolute inset-0 h-full w-full object-cover">
+                </div>
+
                 <div class="absolute -bottom-5 -left-3 card flex items-center gap-3 px-4 py-3 sm:-left-6">
                     <svg class="h-9 w-9 text-brand-gold-dark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
                     <div>
