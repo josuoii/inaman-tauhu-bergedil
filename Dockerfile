@@ -16,7 +16,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends libpq-dev && rm
 
 RUN a2enmod rewrite
 ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
-RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf \
+RUN sed -i 's/^Listen 80/Listen ${PORT}/' /etc/apache2/ports.conf \
+    && sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf \
     && sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
 
 WORKDIR /var/www/html
@@ -27,4 +28,4 @@ COPY . .
 RUN chown -R www-data:www-data storage bootstrap/cache
 
 EXPOSE 80
-CMD sh -c "php artisan package:discover && php artisan config:cache && php artisan route:cache && php artisan view:cache && php artisan migrate --force && php artisan db:seed --force && apache2-foreground"
+CMD sh -c "php artisan package:discover && php artisan config:cache && php artisan view:cache && php artisan migrate --force && php artisan db:seed --force && apache2-foreground"
