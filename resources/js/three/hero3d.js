@@ -125,6 +125,14 @@ export function initHero3D(container) {
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.05;
+
+    // Ensure the canvas sits above the fallback <img> and fills the container.
+    renderer.domElement.style.position = 'absolute';
+    renderer.domElement.style.inset = '0';
+    renderer.domElement.style.width = '100%';
+    renderer.domElement.style.height = '100%';
+    renderer.domElement.style.zIndex = '1';
+
     container.appendChild(renderer.domElement);
 
     const scene = new THREE.Scene();
